@@ -1,0 +1,17 @@
+<div id="<%= dom_id stock_entry %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Quantity:</strong>
+    <%= stock_entry.quantity %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Location:</strong>
+    <%= stock_entry.location %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this stock entry", stock_entry, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this stock entry", edit_stock_entry_path(stock_entry), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
