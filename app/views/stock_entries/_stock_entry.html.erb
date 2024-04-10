@@ -1,5 +1,10 @@
 <div id="<%= dom_id stock_entry %>">
   <p class="my-5">
+    <strong class="block font-medium mb-1">Article:</strong>
+    <%= stock_entry.article.name %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Quantity:</strong>
     <%= stock_entry.quantity %>
   </p>

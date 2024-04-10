@@ -7,6 +7,7 @@
 #  location   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  article_id :integer          not null
 #
 class StockEntry < ApplicationRecord
     belongs_to :article

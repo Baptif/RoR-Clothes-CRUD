@@ -19,6 +19,19 @@
     <%= article.price %>
   </p>
 
+  <div class="my-5">
+    <strong class="block font-medium mb-1">Collections:</strong>
+    <ul>
+      <% if article.collections.empty? %>
+        <li>None for this article</li>
+      <% else %>
+        <% article.collections.each do |collection| %>
+          <li><%= collection.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
   <% if action_name != "show" %>
     <%= link_to "Show this article", article, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Edit this article", edit_article_path(article), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

@@ -65,6 +65,6 @@ class StockEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stock_entry_params
-      params.require(:stock_entry).permit(:quantity, :location)
+      params.require(:stock_entry).permit(:quantity, :location, :article_id)
     end
 end
