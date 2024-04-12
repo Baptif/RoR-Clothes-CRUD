@@ -11,4 +11,8 @@
 #
 class StockEntry < ApplicationRecord
     belongs_to :article
+
+    validates :quantity, presence: true, numericality: true
+    validates :location, presence: true
+    validates_uniqueness_of :article_id, message: "already has a stock entry"
 end

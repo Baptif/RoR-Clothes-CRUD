@@ -13,10 +13,13 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @article.build_stock_entry # Construit un stock_entry associé à l'article
   end
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
+    @article.build_stock_entry unless @article.stock_entry
   end
 
   # POST /articles or /articles.json
@@ -65,6 +68,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:name, :description, :price, :brand_id, collection_ids: [])
+      params.require(:article).permit(:name, :description, :price, :brand_id, collection_ids: [], stock_entry_attributes: [:quantity, :location])
     end
 end

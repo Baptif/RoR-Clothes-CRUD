@@ -9,6 +9,15 @@
     <%= collection.description %>
   </p>
 
+  <% if action_name == "show" %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Articles:</strong>
+      <% collection.articles.each do |article| %>
+        <span class="block"><%= article.name %></span>
+      <% end %>
+    </p>
+  <% end %>
+  
   <% if action_name != "show" %>
     <%= link_to "Show this collection", collection, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Edit this collection", edit_collection_path(collection), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

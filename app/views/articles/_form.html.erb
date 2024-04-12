@@ -28,15 +28,29 @@
 
   <div class="my-5">
     <%= form.label :price %>
-    <%= form.number_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.number_field :price, step: "any", min: 0, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5 mb-10">
-    <%= form.label :collection_ids, 'Collections' %>
+    <span> Collections </span>
     <%= form.collection_check_boxes(:collection_ids, Collection.all, :id, :name) do |b| %>
       <div class="my-1 flex items-center">
-        <%= b.check_box class: "shadow rounded-md border border-gray-200 outline-none h-5 w-5 mr-2" %>
-        <%= b.label %>
+        <%= b.check_box id: "collection_#{b.object.id}", class: "shadow rounded-md border border-gray-200 outline-none h-5 w-5 mr-2" %>
+        <%= b.label for: "collection_#{b.object.id}" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="my-5 mb-10">
+    <strong>Stock entry</strong>
+    <%= form.fields_for :stock_entry do |stock_entry_form| %>
+      <div class="my-5">
+        <%= stock_entry_form.label :quantity %>
+        <%= stock_entry_form.number_field :quantity, min: 0, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      </div>
+      <div class="my-5">
+        <%= stock_entry_form.label :location %>
+        <%= stock_entry_form.text_field :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
       </div>
     <% end %>
   </div>

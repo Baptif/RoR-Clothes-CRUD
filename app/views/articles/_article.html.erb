@@ -4,33 +4,51 @@
     <%= article.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= article.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Brand:</strong>
-    <%= article.brand.name %>
-  </p>
+  <% if action_name == "show" %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Description:</strong>
+      <%= article.description %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Brand:</strong>
+      <%= link_to brand_path(article.brand), class: "text-blue-500 underline" do %>
+        <%= article.brand.name %>
+      <% end %>
+    </p>
+  <% else %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Brand:</strong>
+      <%= article.brand.name %>
+    </p>
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Price:</strong>
     <%= article.price %>
   </p>
 
-  <div class="my-5">
-    <strong class="block font-medium mb-1">Collections:</strong>
-    <ul>
-      <% if article.collections.empty? %>
-        <li>None for this article</li>
-      <% else %>
-        <% article.collections.each do |collection| %>
-          <li><%= collection.name %></li>
+  <% if action_name == "show" %>
+    <div class="my-5">
+      <strong class="block font-medium mb-1">Collections:</strong>
+      <ul>
+        <% if article.collections.empty? %>
+          <li>None for this article</li>
+        <% else %>
+          <% article.collections.each do |collection| %>
+            <%= link_to collection_path(collection), class: "text-blue-500 underline" do %>
+              <li><%= collection.name %></li>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
+      </ul>
+    </div>
+    <% if article.stock_entry.present? %>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Quantity in stock:</strong>
+        <%= article.stock_entry.quantity %>
+      </p>
+    <% end %>
+  <% end %>
 
   <% if action_name != "show" %>
     <%= link_to "Show this article", article, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
