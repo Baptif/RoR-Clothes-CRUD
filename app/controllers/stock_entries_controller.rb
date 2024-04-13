@@ -1,5 +1,6 @@
 class StockEntriesController < ApplicationController
   before_action :set_stock_entry, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /stock_entries or /stock_entries.json
   def index

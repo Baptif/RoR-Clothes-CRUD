@@ -1,0 +1,21 @@
+<nav class="bg-blue-600 p-4 shadow-lg">
+    <div class="flex items-center justify-between">
+        <div>
+            <%= link_to 'Articles', root_path, class: nav_link_class(root_path, articles_path) %>
+            <%= link_to 'Brands', brands_path, class: nav_link_class(brands_path) %>
+            <%= link_to 'Collections', collections_path, class: nav_link_class(collections_path) %>
+            <%= link_to 'Stock Entries', stock_entries_path, class: nav_link_class(stock_entries_path) %>
+        </div>
+        <div>
+            <% if user_signed_in? %>
+                <div class="flex items-center">
+                    <span class="text-white text-lg mr-10"><%= current_user.email %></span>
+                    <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "text-white text-lg" %>
+                </div>
+            <% else %>
+                <%= link_to 'Login', new_user_session_path, class: nav_link_class(new_user_session_path) %>
+                <%= link_to 'Sign up', new_user_registration_path, class: nav_link_class(new_user_registration_path) %>
+            <% end %>
+        </div>
+    </div>
+</nav>
