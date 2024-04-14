@@ -21,6 +21,16 @@
     <%= form.text_area :description, rows: 4, class: "form-input" %>
   </div>
 
+  <div class="form-field">
+    <%= form.label :articles %>
+    <%= form.collection_check_boxes :article_ids, Article.all, :id, :name do |b| %>
+      <div class="my-1 flex items-center">
+        <%= b.check_box id: "collection_#{b.object.id}", class: "form-checkbox" %>
+        <%= b.label for: "collection_#{b.object.id}" %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="inline">
     <%= form.submit class: "form-submit" %>
   </div>

@@ -13,7 +13,7 @@
 
   <div class="form-field">
     <%= form.label :article_id, 'Article' %>
-    <%= form.collection_select(:article_id, Article.all, :id, :name, { prompt: true }, { class: "form-input" }) %>
+    <%= form.collection_select(:article_id, Article.all, :id, :name, { prompt: true }, { class: "form-input", disabled: @stock_entry.persisted? }) %>
   </div>
 
   <div class="form-field">

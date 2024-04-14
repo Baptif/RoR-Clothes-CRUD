@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Brand < ApplicationRecord
-    has_many :articles
+    has_many :articles, dependent: :destroy
 
     validates :name, presence: true, uniqueness: true
 end

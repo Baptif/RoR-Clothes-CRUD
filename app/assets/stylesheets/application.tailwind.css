@@ -8,7 +8,7 @@
     @apply block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full
   }
   .form-container {
-    @apply mx-auto md:w-1/2 w-full
+    @apply mx-auto md:w-2/3 w-full
   }
   .form-title {
     @apply font-bold text-4xl
@@ -22,8 +22,14 @@
   .form-submit {
     @apply rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer
   }
+  .form-delete {
+    @apply mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium
+  }
   .form-errors {
     @apply bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3
+  }
+  .btn-gray {
+    @apply ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium
   }
 }
 

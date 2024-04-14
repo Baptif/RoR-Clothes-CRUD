@@ -1,8 +1,11 @@
 <div class="form-container">
   <h1 class="form-title">Editing collection</h1>
 
-  <%= render "form", collection: @collection %>
-
-  <%= link_to "Show this collection", @collection, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to collections", collections_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= turbo_frame_tag "collection" do %>
+    <%= render "form", collection: @collection %>
+    <%= link_to "Cancel", @collection, data: { turbo_action: 'replace', turbo_frame: 'collection' }, class: "btn-gray" %>
+  <% end %>
+  
+  <%= link_to "Show this collection", @collection, class: "btn-gray" %>
+  <%= link_to "Back to collections", collections_path, class: "btn-gray" %>
 </div>
