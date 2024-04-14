@@ -1,24 +1,21 @@
-# README
+# RoR App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+Cette application permet de gérer des articles, des marques, des collections et des stocks.
+Identifiez vous pour pouvoir modifier les données.
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. Clonez ce dépôt sur votre machine locale.
+2. Exécutez `bundle install` pour installer les dépendances.
+3. Exécutez `rails db:migrate` pour créer la base de données.
+4. Exécutez `./bin/dev` pour démarrer le serveur.
 
-* Configuration
+## Utilisation
 
-* Database creation
+Ouvrez votre navigateur et accédez à `http://localhost:3000` pour commencer à utiliser l'application.
 
-* Database initialization
+## Déploiment
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+L'application est disponible à `https://baptiste-delhomme.onrender.com/`.
